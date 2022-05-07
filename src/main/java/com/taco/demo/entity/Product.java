@@ -15,7 +15,7 @@ public class Product {
 	private String description;
 	private double price;
 	
-	Product() {}
+	public Product() {}
 	
 	public Product(String code, String description, double price) {
 		super();

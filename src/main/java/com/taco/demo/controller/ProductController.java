@@ -13,7 +13,6 @@ import com.taco.demo.entity.Product;
 import com.taco.demo.repository.ProductRepository;
 
 @Controller
-@RequestMapping("/productMain1")
 public class ProductController {
 	@Autowired
 	private ProductRepository productRepository;
@@ -22,7 +21,12 @@ public class ProductController {
 		this.productRepository = productRepository;
 	}
 	
-	@GetMapping("")
+	@GetMapping(value={"","/"})
+	public String welcome() {
+		return "index";
+	}
+	
+	@GetMapping("/products")
 	public String getProductList(Model model) {
 		model.addAttribute("products", productRepository.findAll());
 		return "products";
@@ -59,6 +63,4 @@ public class ProductController {
 		productRepository.deleteById(id);
 		return "redirect:/productMain1";
 	}
-	
-	
 }

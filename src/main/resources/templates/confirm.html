@@ -1,0 +1,16 @@
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Are you sure?</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+    </head>
+    <h2>Are you sure you want to delete this product?</h2>
+    <p> Product code : <span th:text="*{code}"></span></p>
+    <p> Product Description <span th:text="*{description}"></span></p>
+    <p> Product Price </span th:text="*{price}"></span> </p>
+    <form method="post" th:action="@{${'/deleteProduct?id='+ product.id}}">
+    	<input type="submit" value = "Delete now">
+    </form>
+    <a th:href = "@{/products}"> View Product </a>  
+</html>
