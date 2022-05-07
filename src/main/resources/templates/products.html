@@ -21,8 +21,8 @@
                         <th scope="row">${product.code}</th>
                         <td>${product.description}</td>
                         <td>${product.price}</td>
-                        <td><a th:href="@{${'/product?id=' + product.id}}">Edit</a></td>
-                        <td><a th:href="@{${'/confirm?id=' + product.id}}">Delete</a></td>
+                        <td><a th:href="@{${'/edit?id=' + product.id}}">Edit</a></td>
+                        <td><a th:href="@{${'/delete?id=' + product.id}}">Delete</a></td>
                     </tr>
             </tbody>
         </table>

@@ -35,32 +35,32 @@ public class ProductController {
 	@GetMapping("/add")
 	public String addProduct(Model model) {
 		model.addAttribute("products", new Product());
-		return "products";
+		return "product";
 	}
 	
-	@GetMapping("/editProduct")
+	@GetMapping("/edit")
 	public String getProductEditForm(@RequestParam("id") int id, Model model) {
 		Product product = productRepository.findById(id).get();
 		model.addAttribute("product", product);
 		
-		return "edit";
+		return "product";
 	}
 	
 	@PostMapping("/save")
 	public String addProduct(@ModelAttribute("product") Product product) {
 		productRepository.save(product);
-		return "redirect:/productMain1";
+		return "redirect:/";
 	}
 	
 	@GetMapping("/delete")
 	public String getDeleteProductForm(@RequestParam("id") int id, Model model) {
 		model.addAttribute("product", productRepository.findById(id).get());
-		return "delete";
+		return "confirm";
 	}
 	
 	@PostMapping("/deleteProduct")
 	public String deleteProduct(@RequestParam("id") int id) {
 		productRepository.deleteById(id);
-		return "redirect:/productMain1";
+		return "redirect:/";
 	}
 }
